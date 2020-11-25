@@ -7,8 +7,8 @@ The application keeps running indefinitely, fetching tasks and posting results, 
 
 
 ## Cloning and running this app:
-* Clone the project: `git clone https://github.com/leandropaz/tasks-solver-app.git`
+* Clone the project: `git clone https://github.com/leandropaz/tasks-solver-app.git && cd tasks-solver-app`
 * Install dependencies: `npm install`
-* Linter: `npm run lint`
+* Linter script: `npm run lint`
 * Run tests: `npm test`
 * Run: `npm start`
