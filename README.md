@@ -6,7 +6,7 @@ Once the app is started, it sends a GET request to fetch a task. Then it calcula
 The application keeps running indefinitely, fetching tasks and posting results, until a `SIGINT` (<kbd>Ctrl</kbd> + <kbd>c</kbd>) is detected.
 
 
-## Application commands
+## Cloning and running this app:
 * Clone the project: `git clone https://github.com/leandropaz/tasks-solver-app.git`
 * Install dependencies: `npm install`
 * Linter: `npm run lint`
