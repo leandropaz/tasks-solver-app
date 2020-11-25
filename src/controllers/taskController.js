@@ -1,21 +1,30 @@
 const api = require('../api/api');
 const { calculations } = require('../utils/taskHandler');
 
+function handleError(info) {
+  const err = new Error(info);
+  err.status = info.response.status;
+  err.data = info.response.data;
+  return err;
+}
+
 const getTask = async () => {
   const url = '/get-task';
   try {
     const response = await api.get(url);
 
     const result = calculations(response.data);
-    return {
+    const objReturn = {
       response,
       data: {
         id: response.data.id,
         result,
       },
     };
+    return objReturn;
   } catch (error) {
-    throw new Error(error);
+    const parsedError = handleError(error);
+    throw parsedError;
   }
 };
 
@@ -27,7 +36,8 @@ const submitTask = async (data) => {
     const response = await api.post(url, { id, result });
     return response;
   } catch (error) {
-    throw new Error(error);
+    const parsedError = handleError(error);
+    throw parsedError;
   }
 };
 

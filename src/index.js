@@ -5,19 +5,21 @@ const TIMES = 90; // number of times to repeat the 'separator' character =)
 
 const work = async () => {
   try {
-    const data = await getTask();
-    messageHandler(data.response);
-    const result = await submitTask(data.data);
+    const task = await getTask();
+    messageHandler(task.response);
+    const result = await submitTask(task.data);
     messageHandler(result);
     return true;
   } catch (error) {
-    messageHandler(error.response);
+    messageHandler(error);
     return false;
   }
 };
 
 async function start() {
-  while (TIMES) { // bypassing no-constant-condition linter =P
+  // linter doesn't like the true constant in while loop,
+  // but it's ok with this one ¯\_(ツ)_/¯
+  while (TIMES) {
     await work();
     console.log('-'.repeat(TIMES));
   }
